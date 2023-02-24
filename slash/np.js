@@ -25,7 +25,7 @@ module.exports = {
             await interaction.editReply({
                 embeds: [new EmbedBuilder()
                 // .setThumbnail(song.thumbnail)
-                .setDescription(`Youre listening to [${song.title}](${song.url})\n\n`+ bar)
+                .setDescription(`You're listening to [${song.title}](${song.url})\n\n`+ bar)
                 ],
                 
             })
