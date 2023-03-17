@@ -16,13 +16,12 @@ const GUILD_ID = "861736404878622771"
 const client = new Client({
     intents: [
         "Guilds",
-        "GuildMembers",
+        "GuildVoiceStates",
         "GuildMessages",
         "MessageContent",
-        "GuildVoiceStates",
+        "GuildMembers"
     ]
 })
-
 client.slashcommands = new Discord.Collection()
 client.player = new Player(client, {
     ytdlOptions: {
