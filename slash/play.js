@@ -44,6 +44,8 @@ module.exports = {
                leaveOnEndCooldown: 300000,
             });
 		if (!queue.connection) await queue.connect(interaction.member.voice.channel)
+        // if(!queue.connection) await client.player.play(interaction.member.voice.channel, songToPlay)
+        
 
 		let embed = new EmbedBuilder()
 
@@ -95,7 +97,7 @@ module.exports = {
                 .setThumbnail(song.thumbnail)
                 .setFooter({ text: `Duration: ${song.duration}`})
 		}
-        if (!queue.playing) await queue.node.play()
+        if (!queue.node.isPlaying) await queue.node.play()
         await interaction.editReply({
             embeds: [embed]
         })
