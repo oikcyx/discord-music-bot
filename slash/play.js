@@ -45,8 +45,6 @@ module.exports = {
             });
 		if (!queue.connection) await queue.connect(interaction.member.voice.channel)
         // if(!queue.connection) await client.player.play(interaction.member.voice.channel, songToPlay)
-        
-
 		let embed = new EmbedBuilder()
 
 		if (interaction.options.getSubcommand() === "song") {
