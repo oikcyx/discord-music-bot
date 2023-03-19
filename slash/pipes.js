@@ -10,8 +10,21 @@ module.exports = {
 		if (!interaction.member.voice.channel)
             return interaction.editReply("You need to be in a VC to use this command")
 
-		const queue = await client.player.createQueue(interaction.guild)
-		if (!queue.connection) await queue.connect(interaction.member.voice.channel)
+        const queue = await client.player.nodes.create(interaction.guild,{
+            metadata: {
+                guild: interaction.guild,
+                channel: interaction.channel,
+                client: interaction.guild.members.me,
+                requestedBy: interaction.user,
+            },
+            selfDeaf: true,
+            volume: 80,
+            leaveOnEmpty: true,
+            leaveOnEmptyCooldown: 300000,
+            leaveOnEnd: true,
+            leaveOnEndCooldown: 300000,
+        });
+         if (!queue.connection) await queue.connect(interaction.member.voice.channel)
 
 		let embed = new EmbedBuilder()
         let url = "https://www.youtube.com/watch?v=_O7NYn_7WLc"
@@ -27,7 +40,7 @@ module.exports = {
                 // .setThumbnail(song.thumbnail)
                 .setFooter({ text: `Duration: ${song.duration}`})
 		
-        if (!queue.playing) await queue.play()
+        if (!queue.node.isPlaying) await queue.node.play()
         await interaction.editReply({
             embeds: [embed]
         })

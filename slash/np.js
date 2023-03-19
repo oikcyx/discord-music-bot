@@ -5,11 +5,11 @@ const { QueryType } = require("discord-player")
 module.exports = {
 	data: new SlashCommandBuilder().setName("np").setDescription("Displays info about the currently playing song"),
 	run: async ({ client, interaction }) => {
-		const queue = client.player.getQueue(interaction.guildId)
+		const queue = client.player.nodes.get(interaction.guildId)
 
 		if (!queue) return await interaction.editReply("This is what the bot says if there is nothing in queue")
 
-            let bar = queue.createProgressBar({
+            let bar = queue.node.createProgressBar({
                 queue: false,
                 length: 19,
             })
@@ -20,7 +20,7 @@ module.exports = {
                 requestedBy: interaction.user,
                 searchEngine: QueryType.YOUTUBE_VIDEO
             })
-            const song = queue.current 
+            const song = queue.currentTrack
 
             await interaction.editReply({
                 embeds: [new EmbedBuilder()
