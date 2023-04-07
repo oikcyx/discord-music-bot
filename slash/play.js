@@ -37,7 +37,12 @@ module.exports = {
             return interaction.editReply("No results") //No result
         
         const song = result.tracks[0]
-        if(!queue.connection) await client.player.play(interaction.member.voice.channel, song)
+        if(!queue.connection){
+            await client.player.play(interaction.member.voice.channel, song)
+        }else {
+            queue.addTrack(song);
+        }
+
         embed
             .setDescription(`**[${song.title}](${song.url})** has been added to the queue`) // have been added to queue
             .setThumbnail(song.thumbnail)
