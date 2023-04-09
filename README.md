@@ -3,3 +3,4 @@ open terminal and paste in : npm i discord.js dotenv ffmpeg-static @discord-play
 
 
 Make a .env file with your bot TOKEN, bot ID, and server ID
+Also paste DP_FORCE_YTDL_MOD="@distube/ytdl-core" 
