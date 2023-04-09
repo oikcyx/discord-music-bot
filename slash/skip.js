@@ -13,7 +13,7 @@ module.exports = {
 		queue.node.skip()
         await interaction.editReply({
             embeds: [
-                new EmbedBuilder().setDescription(`${currentSong.title} has been skipped!`).setThumbnail(currentSong.thumbnail)
+                new EmbedBuilder().setDescription(`Skipped!`)
             ]
         })
 	},

@@ -27,7 +27,7 @@ module.exports = {
 				)
 		),
 	run: async ({ client, interaction }) => {
-		if (!interaction.member.voice.channel) return interaction.editReply("Join a call first") // Please enter to a voicechat
+		if (!interaction.member.voice.channel) return interaction.editReply("Join a call first")
 
 		const queue = await client.player.nodes.create(interaction.guild,{
                metadata: {
@@ -43,8 +43,6 @@ module.exports = {
                leaveOnEnd: true,
                leaveOnEndCooldown: 300000,
             });
-		// if (!queue.connection) await queue.connect(interaction.member.voice.channel)
-        // if(!queue.connection) await client.player.play(interaction.member.voice.channel, songToPlay)
 		let embed = new EmbedBuilder()
 
 		if (interaction.options.getSubcommand() === "song") {
