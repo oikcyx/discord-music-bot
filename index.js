@@ -6,12 +6,12 @@ const fs = require("fs");
 const { Player } = require("discord-player");
 const { Client } = require('discord.js');
 const { ApplicationCommandOptionType } = require("discord.js");
+
 const TOKEN = process.env.TOKEN
-
-const LOAD_SLASH = process.argv[2] == "load"
-
 const CLIENT_ID = process.env.botId
 const GUILD_ID = process.env.serverId
+
+const LOAD_SLASH = process.argv[2] == "load"
 
 const client = new Client({
     intents: [
