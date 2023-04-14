@@ -31,7 +31,7 @@ module.exports = {
                },
                selfDeaf: true,
                volume: 100,
-               leaveOnEmpty: true,
+               leaveOnEmpty: false,
                leaveOnEmptyCooldown: 300,
                leaveOnEnd: true,
                leaveOnEndCooldown: 300,

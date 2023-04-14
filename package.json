@@ -19,9 +19,11 @@
     "@distube/ytdl-core": "^4.11.7",
     "avconv": "^3.1.0",
     "discord-player": "^6.1.1",
-    "discord.js": "^14.8.0",
+    "discord.js": "^14.9.0",
     "dotenv": "^16.0.3",
     "ffmpeg-static": "^5.1.0",
+    "genius-lyrics": "^4.4.3",
+    "lyrics-finder": "^21.7.0",
     "opusscript": "^0.0.8",
     "play-dl": "^1.9.6"
   }
