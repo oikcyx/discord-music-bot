@@ -23,7 +23,6 @@
     "dotenv": "^16.0.3",
     "ffmpeg-static": "^5.1.0",
     "genius-lyrics": "^4.4.3",
-    "lyrics-finder": "^21.7.0",
     "opusscript": "^0.0.8",
     "play-dl": "^1.9.6"
   }
