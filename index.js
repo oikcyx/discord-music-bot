@@ -9,7 +9,6 @@ const { ApplicationCommandOptionType } = require("discord.js");
 
 const TOKEN = process.env.TOKEN
 const CLIENT_ID = process.env.botId
-const GUILD_ID = process.env.serverId
 
 const LOAD_SLASH = process.argv[2] == "load"
 
@@ -32,17 +31,19 @@ client.player = new Player(client, {
 
 let commands = []
 
-const slashFiles = fs.readdirSync("./slash").filter(file => file.endsWith(".js"))
-for (const file of slashFiles){
-    const slashcmd = require(`./slash/${file}`)
-    client.slashcommands.set(slashcmd.data.name, slashcmd)
-    if (LOAD_SLASH) commands.push(slashcmd.data.toJSON())
+const slashFolders = fs.readdirSync("./slash").filter(folder => !folder.includes("."))
+for (const folder of slashFolders) {
+    const slashFiles = fs.readdirSync(`./slash/${folder}`).filter(file => file.endsWith(".js"))
+    for (const file of slashFiles) {
+        const slashcmd = require(`./slash/${folder}/${file}`)
+        client.slashcommands.set(slashcmd.data.name, slashcmd)
+        if (LOAD_SLASH) commands.push(slashcmd.data.toJSON())
+    }
 }
 
 if (LOAD_SLASH) {
     const rest = new REST({ version: "9" }).setToken(TOKEN)
     console.log("Deploying slash commands")
-    // rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {body: commands})
     rest.put(Routes.applicationCommands(CLIENT_ID), {body: commands})
     .then(() => {
         console.log("Successfully loaded")
