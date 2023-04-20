@@ -10,8 +10,6 @@ const { ApplicationCommandOptionType } = require("discord.js");
 const TOKEN = process.env.TOKEN
 const CLIENT_ID = process.env.botId
 
-const LOAD_SLASH = process.argv[2] == "load"
-
 const client = new Client({
     intents: [
         "Guilds",
@@ -22,6 +20,9 @@ const client = new Client({
     ]
 })
 client.slashcommands = new Discord.Collection()
+
+client.slashcommands.clear() // Clear the collection before loading commands
+
 client.player = new Player(client, {
     ytdlOptions: {
         quality: "highestaudio",
@@ -29,34 +30,20 @@ client.player = new Player(client, {
     }
 })
 
-let commands = []
-
 const slashFolders = fs.readdirSync("./slash").filter(folder => !folder.includes("."))
 for (const folder of slashFolders) {
     const slashFiles = fs.readdirSync(`./slash/${folder}`).filter(file => file.endsWith(".js"))
     for (const file of slashFiles) {
         const slashcmd = require(`./slash/${folder}/${file}`)
         client.slashcommands.set(slashcmd.data.name, slashcmd)
-        if (LOAD_SLASH) commands.push(slashcmd.data.toJSON())
     }
 }
 
-if (LOAD_SLASH) {
-    const rest = new REST({ version: "9" }).setToken(TOKEN)
-    console.log("Deploying slash commands")
-    rest.put(Routes.applicationCommands(CLIENT_ID), {body: commands})
-    .then(() => {
-        console.log("Successfully loaded")
-        process.exit(0)
-    })
-    .catch((err) => {
-        if (err){
-            console.log(err)
-            process.exit(1)
-        }
-    })
-}
-else {
+const rest = new REST({ version: "9" }).setToken(TOKEN)
+console.log("Deploying slash commands")
+rest.put(Routes.applicationCommands(CLIENT_ID), {body: client.slashcommands.map(cmd => cmd.data.toJSON())})
+.then(() => {
+    console.log("Successfully loaded")
     client.on("ready", () => {
         console.log(`Logged in as ${client.user.tag}`)
     })
@@ -72,4 +59,10 @@ else {
         handleCommand()
     })
     client.login(TOKEN)
-}
+})
+.catch((err) => {
+    if (err){
+        console.log(err)
+        process.exit(1)
+    }
+})
