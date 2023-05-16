@@ -44,7 +44,7 @@ module.exports = {
         if (interaction.options.getSubcommand() === "playlist") {
             const result = await client.player.search(url, {
                 requestedBy: interaction.user,
-                searchEngine: QueryType.YOUTUBE_PLAYLIST
+                searchEngine: QueryType.YOUTUBE_PLAYLIST,
             })
 
             if (result.tracks.length === 0)
@@ -70,7 +70,7 @@ module.exports = {
         } else {
             const result = await client.player.search(url, {
                 requestedBy: interaction.user,
-                searchEngine: QueryType.YOUTUBE_VIDEO
+                searchEngine: QueryType.YOUTUBE_VIDEO,
             })
             if (result.tracks.length === 0)
                 return interaction.editReply("No results") 
