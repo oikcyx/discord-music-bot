@@ -4,7 +4,7 @@ const { QueryType } = require("discord-player")
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName("test")
+		.setName("play")
 		.setDescription("play a song")
         .addStringOption((option) => option.setName("url").setDescription("YT url").setRequired(true)),
 
