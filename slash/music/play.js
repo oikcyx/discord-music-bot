@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName("play")
 		.setDescription("play a song")
-        .addStringOption((option) => option.setName("url").setDescription("YT url").setRequired(true)),
+        .addStringOption((option) => option.setName("url").setDescription("Link").setRequired(true)),
 
 	run: async ({ client, interaction }) => {
 		if (!interaction.member.voice.channel) return interaction.editReply("Join a call first")
