@@ -52,7 +52,7 @@ module.exports = {
                     queue.addTrack(result.tracks[i]);
                 }
             }
-
+            console.log(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`);
             embed
                 .setDescription(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`) 
                 // .setThumbnail(playlist.thumbnail)
@@ -73,7 +73,7 @@ module.exports = {
             }else {
                 queue.addTrack(song);
             }
-    
+            console.log(`**[${song.title}](${song.url})** has been added to the queue`);
             embed
                 .setDescription(`**[${song.title}](${song.url})** has been added to the queue`) 
                 .setThumbnail(song.thumbnail)
@@ -95,7 +95,7 @@ module.exports = {
             }else {
                 queue.addTrack(song);
             }
-    
+            console.log(`**[${song.title}](${song.url})** has been added to the queue`);
             embed
                 .setDescription(`**[${song.title}](${song.url})** has been added to the queue`) 
                 .setThumbnail(song.thumbnail)
@@ -123,7 +123,7 @@ module.exports = {
                     queue.addTrack(result.tracks[i]);
                 }
             }
-
+            console.log(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`);
             embed
                 .setDescription(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`) 
                 .setThumbnail(playlist.thumbnail)
@@ -150,7 +150,7 @@ module.exports = {
                     queue.addTrack(result.tracks[i]);
                 }
             }
-
+            console.log(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`);
             embed
                 .setDescription(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`) 
                 .setThumbnail(playlist.thumbnail)
