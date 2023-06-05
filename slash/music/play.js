@@ -54,7 +54,7 @@ module.exports = {
             }
             console.log(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`);
             embed
-                .setDescription(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`) 
+                .setDescription(`**${result.tracks.length} tracks from [${playlist.title}]** has been added to the queue`) 
                 // .setThumbnail(playlist.thumbnail)
         } 
         else if (url.startsWith("https://www.youtube.com/watch?")) {
@@ -75,7 +75,7 @@ module.exports = {
             }
             console.log(`**[${song.title}](${song.url})** has been added to the queue`);
             embed
-                .setDescription(`**[${song.title}](${song.url})** has been added to the queue`) 
+                .setDescription(`**[${song.title}]** has been added to the queue`) 
                 .setThumbnail(song.thumbnail)
                 .setFooter({ text: `Duration: ${song.duration}`})
         }
@@ -97,7 +97,7 @@ module.exports = {
             }
             console.log(`**[${song.title}](${song.url})** has been added to the queue`);
             embed
-                .setDescription(`**[${song.title}](${song.url})** has been added to the queue`) 
+                .setDescription(`**[${song.title}]** has been added to the queue`) 
                 .setThumbnail(song.thumbnail)
                 .setFooter({ text: `Duration: ${song.duration}`})
         }
@@ -125,7 +125,7 @@ module.exports = {
             }
             console.log(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`);
             embed
-                .setDescription(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`) 
+                .setDescription(`**${result.tracks.length} tracks from [${playlist.title}]** has been added to the queue`) 
                 .setThumbnail(playlist.thumbnail)
         } 
         else if (url.startsWith("https://open.spotify.com/album/")) {
@@ -152,7 +152,7 @@ module.exports = {
             }
             console.log(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`);
             embed
-                .setDescription(`**${result.tracks.length} tracks from [${playlist.title}](${playlist.url})** has been added to the queue`) 
+                .setDescription(`**${result.tracks.length} tracks from [${playlist.title}]** has been added to the queue`) 
                 .setThumbnail(playlist.thumbnail)
         } 
 
