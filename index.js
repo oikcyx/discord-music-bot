@@ -8,7 +8,7 @@ const { Client } = require('discord.js');
 const { ApplicationCommandOptionType } = require("discord.js");
 
 const TOKEN = process.env.TOKEN
-const CLIENT_ID = process.env.botId
+const CLIENT_ID = process.env.clientId
 
 const client = new Client({
     intents: [
