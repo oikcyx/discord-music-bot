@@ -16,7 +16,7 @@
     "@discordjs/opus": "^0.8.0",
     "@discordjs/rest": "^1.6.0",
     "@discordjs/voice": "^0.14.0",
-    "@distube/ytdl-core": "^4.11.9",
+    "@distube/ytdl-core": "^4.11.17",
     "discord-player": "^6.2.1",
     "discord.js": "^14.9.0",
     "dotenv": "^16.0.3",
