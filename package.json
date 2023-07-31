@@ -10,17 +10,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@discord-player/equalizer": "^0.1.4-dev.1",
+    "@discord-player/equalizer": "^0.2.2",
     "@discord-player/extractor": "^4.1.2",
     "@discordjs/builders": "^1.5.0",
-    "@discordjs/opus": "^0.8.0",
-    "@discordjs/rest": "^1.6.0",
-    "@discordjs/voice": "^0.14.0",
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/rest": "^2.0.0",
+    "@discordjs/voice": "^0.16.0",
     "@distube/ytdl-core": "^4.11.17",
     "discord-player": "^6.2.1",
     "discord.js": "^14.9.0",
     "dotenv": "^16.0.3",
     "ffmpeg-static": "^5.1.0",
-    "genius-lyrics": "^4.4.3"
+    "genius-lyrics": "^4.4.3",
+    "soundcloud-scraper": "^5.0.3"
   }
 }
