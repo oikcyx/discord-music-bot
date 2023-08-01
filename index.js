@@ -58,6 +58,9 @@ rest.put(Routes.applicationCommands(CLIENT_ID), {body: client.slashcommands.map(
         }
         handleCommand()
     })
+    client.player.events.on('playerStart', (queue, track) => {
+        queue.metadata.channel.send(`Now playing **${track.title}**!`);
+    });
     client.login(TOKEN)
 })
 .catch((err) => {
