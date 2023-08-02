@@ -61,6 +61,14 @@ rest.put(Routes.applicationCommands(CLIENT_ID), {body: client.slashcommands.map(
     client.player.events.on('playerStart', (queue, track) => {
         queue.metadata.channel.send(`Now playing **${track.title}**!`);
     });
+    client.player.events.on('error', (queue, error) => {
+        console.log(`General player error event: ${error.message}`);
+        console.log(error);
+    });
+    client.player.events.on('playerError', (queue, error) => { 
+        console.log(`Player error event: ${error.message}`);
+        console.log(error);
+    });
     client.login(TOKEN)
 })
 .catch((err) => {
