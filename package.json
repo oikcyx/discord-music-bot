@@ -17,10 +17,11 @@
     "@discordjs/rest": "^2.0.0",
     "@discordjs/voice": "^0.16.0",
     "@distube/ytdl-core": "^4.11.17",
-    "discord-player": "^6.2.1",
+    "discord-api-types": "^0.37.56",
+    "discord-player": "^6.6.3",
     "discord.js": "^14.9.0",
     "dotenv": "^16.0.3",
-    "ffmpeg-static": "^5.1.0",
+    "ffmpeg-static": "^5.2.0",
     "genius-lyrics": "^4.4.3",
     "soundcloud-scraper": "^5.0.3"
   }

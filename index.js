@@ -5,7 +5,6 @@ const { Routes } = require("discord-api-types/v9");
 const fs = require("fs");
 const { Player } = require("discord-player");
 const { Client } = require('discord.js');
-const { ApplicationCommandOptionType } = require("discord.js");
 
 const TOKEN = process.env.TOKEN
 const CLIENT_ID = process.env.clientId
@@ -29,6 +28,8 @@ client.player = new Player(client, {
         highWaterMark: 1 << 25
     }
 })
+
+client.player.extractors.loadDefault();
 
 const slashFolders = fs.readdirSync("./slash").filter(folder => !folder.includes("."))
 for (const folder of slashFolders) {
