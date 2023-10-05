@@ -8,6 +8,6 @@ module.exports = {
 		.addUserOption(option => option.setName('target').setDescription('The member to kick').setRequired(true)),
 	run: async ({ client, interaction }) => {
 		const member = interaction.options.getMember('target');
-		return interaction.reply({ content: `You wanted to kick: ${member.user.username}`, ephemeral: true });
+		return interaction.editReply({ content: `You wanted to kick: ${member.user.username}`, ephemeral: true });
 	},
 };
