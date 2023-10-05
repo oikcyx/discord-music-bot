@@ -10,7 +10,7 @@ module.exports = {
 				.setDescription('Number of messages to prune')
 				.setMinValue(1)
 				.setMaxValue(100)),
-	async execute(interaction) {
+	run: async ({ client, interaction }) =>  {
 		const amount = interaction.options.getInteger('amount');
 
 		await interaction.channel.bulkDelete(amount, true).catch(error => {
