@@ -115,7 +115,7 @@ class HTMLElement{
 	Node appendChild(Node node)
 	this insertAdjacentHTML('beforebegin' | 'afterbegin' | 'beforeend' | 'afterend' where, string html)
 	this setAttribute(string key, string value)
-	this setAttributes(Record~string, string~ attrs)
+	this setAttributes(Record string, string attrs)
 	this removeAttribute(string key)
 	string getAttribute(string key)
 	this exchangeChild(Node oldNode, Node newNode)
@@ -143,7 +143,7 @@ class HTMLElement{
 	string innerHTML
 	string outerHTML
 	string textContent
-	Record~string, string~ attributes
+	Record<string, string> attributes
 	[number, number] range
 }
 class Node{
