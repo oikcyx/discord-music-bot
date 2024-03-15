@@ -154,7 +154,28 @@ module.exports = {
             embed
                 .setDescription(`**${result.tracks.length} tracks from [${playlist.title}]** has been added to the queue`) 
                 .setThumbnail(playlist.thumbnail)
-        } 
+        }else{
+            console.log("Queueing song from YouTube")
+            const result = await client.player.search(url, {
+                requestedBy: interaction.user,
+                searchEngine: QueryType.YOUTUBE_VIDEO,
+            })
+            if (result.tracks.length === 0)
+                return interaction.editReply("No results") 
+            
+            const song = result.tracks[0]
+            
+            if(!queue.connection){
+                await client.player.play(interaction.member.voice.channel, song)
+            }else {
+                queue.addTrack(song);
+            }
+            console.log(`**[${song.title}](${song.url})** has been added to the queue`);
+            embed
+                .setDescription(`**[${song.title}]** has been added to the queue`) 
+                .setThumbnail(song.thumbnail)
+                .setFooter({ text: `Duration: ${song.duration}`})
+        }
 
         if (!queue.node.isPlaying) await queue.node.play()
         await interaction.editReply({
